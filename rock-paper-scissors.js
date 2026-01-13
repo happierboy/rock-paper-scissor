@@ -15,7 +15,7 @@ function getComputerChoice(){
 }
 
 //get user input
-let answer = prompt("choose rock,paper or scissor", "paper")
+let answer = prompt("choose rock,paper or scissor", "rock")
 
 function getHumanChoice(){
   const posibleAnswer = ["rock" , "paper" , "scissor"]
@@ -33,38 +33,58 @@ function getHumanChoice(){
   }
 }
 
-const humanScore = 0;
-const computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
-function playRound(humanChoice, computerChoice){
-  console.log(computerChoice)
+function playRound(humanChoice,computerChoice){
   console.log(humanChoice)
+  console.log(computerChoice)
+        if (humanChoice === "rock" && computerChoice === "paper"){
+        computerScore += 1;
+        return "Bro, you suck, paper beats rock, computer wins"
+      }
+      else if (humanChoice === "rock" && computerChoice === "scissor"){
+        humanScore += 1;
+        return "Bro, you win!, rock beats scissor"
+      }
+      else if(humanChoice === "scissor" && computerChoice === "paper"){
+        humanScore += 1;
+        return "Bro, you win!, scissor beats paper"
+      }
+      else if(humanChoice === "scissor" && computerChoice === "rock"){
+        computerScore += 1;
+        return "Bro , you suck, rock beats scissor, computer wins"
+      }
+      else if(humanChoice === "paper" && computerChoice === "rock"){
+        humanScore += 1;
+        return "Bro, you win!, paper beats rock"
+      }
+      else if(humanChoice === "paper" && computerChoice === "scissor"){
+        computerScore += 1;
+        return "Bro , you suck, scissor beats paper, computer wins"
+      }
+      else if(humanChoice === computerChoice){
+        return "it's a tie"
+      }
+    }
 
-  if (humanChoice === "rock" && computerChoice === "paper"){
-    return "Bro, you suck, paper beats rock, computer wins"
+  function playGame(){
+    let rounds = 0
+    let numbersRounds = true;
+    
+    while(numbersRounds){
+       rounds += 1;  
+       if (rounds = 5){
+        numbersRounds = false
+       }
+       
+    }
   }
-  else if (humanChoice === "rock" && computerChoice === "scissor"){
-    return "Bro, you win!, rock beats scissor"
-  }
-  else if(humanChoice === "scissor" && computerChoice === "paper"){
-    return "Bro, you win!, scissor beats paper"
-  }
-  else if(humanChoice === "scissor" && computerChoice === "rock"){
-    return "Bro , you suck, rock beats scissor, computer wins"
-  }
-  else if(humanChoice === "paper" && computerChoice === "rock"){
-    return "Bro, you win!, paper beats rock"
-  }
-  else if(humanChoice === "paper" && computerChoice === "scissor"){
-    return "Bro , you suck, scissor beats paper, computer wins"
-  }
-  else if(humanChoice === computerChoice){
-    return "it's a tie"
-  }
-
   
 
-}
 
-console.log(playRound( getHumanChoice(), getComputerChoice()))
 
+console.log(playRound(getHumanChoice(), getComputerChoice()))
+console.log(computerScore + " pcScore")
+console.log(humanScore + " humanScore")
+console.log(playGame(answer))

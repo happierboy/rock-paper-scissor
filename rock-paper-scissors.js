@@ -5,7 +5,67 @@
     //connect the result with an array
         //array may content three strings
 
-        
+winner = document.querySelector("#resultado")
+pcResponse = document.querySelector("#pcResponse")
+humanResponse = document.querySelector("#humanResponse")
+buttons = document.querySelectorAll('button')
+rock = document.querySelector("#rock")
+paper = document.querySelector("#paper")
+scissors = document.querySelector("#scissors")
+
+posibleAnswers = ["rock" , "paper", "scissor"]
+rock.addEventListener('click', function result(){
+  if(computerScore + humanScore >= 5){
+    buttons.disabled = true
+    if(computerScore < humanScore){
+      alert("Bro you win this game, reload to start again")
+    }
+    else if(computerScore > humanScore){
+      alert("Bro you lose, go ahead restart and regain your dignity")
+    }
+  }
+  else{
+    winner.textContent = playRound(posibleAnswers[0], getComputerChoice())
+    pcResponse.textContent = `${computerScore} :PC Score`
+    humanResponse.textContent = `${humanScore} :Human Score`
+  }
+})
+paper.addEventListener('click', function result(){
+  if(computerScore + humanScore >= 5){
+    buttons.disabled = true
+    if(computerScore < humanScore){
+      alert("bro you win this game, reload to start again")
+    }
+    else if(computerScore > humanScore){
+      alert("Bro you lose, go ahead restart and regain your dignity")
+    }
+  }
+  else{
+    winner.textContent = playRound(posibleAnswers[1], getComputerChoice())
+    pcResponse.textContent = `${computerScore} :PC Score`
+    humanResponse.textContent = `${humanScore} :Human Score`
+      }
+})
+scissors.addEventListener('click', function result(){
+  if(computerScore + humanScore >= 5){
+    buttons.disabled = true
+    if(computerScore < humanScore){
+      alert("bro you win this game, reload to start again")
+    }
+    else if(computerScore > humanScore){
+      alert("Bro you lose, go ahead restart and regain your dignity")
+    }  
+  }
+  
+  else{
+    winner.textContent = playRound(posibleAnswers[2], getComputerChoice())
+    pcResponse.textContent = `${computerScore} :PC Score`
+    humanResponse.textContent = `${humanScore} :Human Score`
+  }
+})
+function fiveRounds(){
+  if(computerScore + humanScore <= 5){}
+}
 
 function getComputerChoice(){
     const rockPaperScissor = ["rock", "paper", "scissor"]
@@ -15,7 +75,7 @@ function getComputerChoice(){
 }
 
 //get user input
-let answer = prompt("choose rock,paper or scissor", "rock")
+//let answer = prompt("choose rock,paper or scissor", "rock")
 
 function getHumanChoice(){
   const posibleAnswer = ["rock" , "paper" , "scissor"]
@@ -68,23 +128,26 @@ function playRound(humanChoice,computerChoice){
       }
     }
 
-  function playGame(){
+  /*function playGame(){
     let rounds = 0
     let numbersRounds = true;
-    
+    console.log("hello")
     while(numbersRounds){
+      console.log("hello")
+      const playRounds = playRound(getHumanChoice(), getComputerChoice())
        rounds += 1;  
-       if (rounds = 5){
+       if (rounds >= 5){
         numbersRounds = false
        }
+       return playRounds
        
     }
   }
-  
+  */
 
 
 
-console.log(playRound(getHumanChoice(), getComputerChoice()))
-console.log(computerScore + " pcScore")
-console.log(humanScore + " humanScore")
-console.log(playGame(answer))
+//console.log(playRound(getHumanChoice(), getComputerChoice()))
+//console.log(computerScore + " pcScore")
+//console.log(humanScore + " humanScore")
+//console.log(playGame())

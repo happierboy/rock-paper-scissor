@@ -46,17 +46,17 @@ button {
 
 /* Efectos de los botones */
 button:hover {
-  background-color: #4ecca3;
+  background-color: #e0a655;
   color: #1a1a2e;
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(78, 204, 163, 0.4);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
 }
 
 button:active {
   transform: translateY(0);
 }
 
-/* Estilo cuando el juego termina (deshabilitados) */
+/* Estilo cuando el juego termina (deshabilitados) */ 
 button:disabled {
   background-color: #2d3436;
   border-color: #636e72;
